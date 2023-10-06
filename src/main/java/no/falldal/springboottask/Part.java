@@ -1,4 +1,3 @@
 package no.falldal.springboottask;
 
-public class Part {
-}
+public record Part(String name, int price) {}
