@@ -11,6 +11,8 @@ public class PartsRepositoryUnitTest {
 
     @Test
     void testRepositoryAddPart() {
+        partsRepository.getPartsList().clear();
+
         partsRepository.addPart(new Part("Gear", 1));
         assertEquals(1, partsRepository.getPartsList().size());
         assertEquals("Gear", partsRepository.getPartsList().get(0).name());
@@ -25,6 +27,8 @@ public class PartsRepositoryUnitTest {
 
     @Test
     void testRepositoryUpdatePart() {
+        partsRepository.getPartsList().clear();
+
         partsRepository.addPart(new Part("Cog", 4));
         partsRepository.updatePart(new Part("Cog", 4), new Part("Cog", 5));
         assertEquals(1, partsRepository.getPartsList().size());
@@ -33,6 +37,8 @@ public class PartsRepositoryUnitTest {
 
     @Test
     void testRepositoryDeletePart() {
+        partsRepository.getPartsList().clear();
+
         partsRepository.addPart(new Part("Spring", 6));
         assertEquals(1, partsRepository.getPartsList().size());
         partsRepository.deletePart(new Part("Spring", 6));

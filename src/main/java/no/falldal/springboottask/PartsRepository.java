@@ -3,7 +3,6 @@ package no.falldal.springboottask;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 
-import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
 @Component
@@ -13,6 +12,9 @@ public class PartsRepository {
 
     public PartsRepository() {
         partsList = new ArrayList<>();
+
+        partsList.add(new Part("Part1", 100));
+        partsList.add(new Part("Part2", 200));
     }
 
     public void addPart(Part part) {
