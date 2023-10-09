@@ -1,5 +1,6 @@
 package no.falldal.springboottask;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
@@ -8,6 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PartsRepositoryUnitTest {
     @MockBean
     PartsRepository partsRepository = new PartsRepository();
+
+    @BeforeEach
+    void clearRepository() {
+        partsRepository.getPartsList().clear();
+    }
 
     @Test
     void testRepositoryAddPart() {
