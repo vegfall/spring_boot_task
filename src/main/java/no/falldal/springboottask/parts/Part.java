@@ -1,3 +1,3 @@
-package no.falldal.springboottask;
+package no.falldal.springboottask.parts;
 
 public record Part(String name, int price) {}

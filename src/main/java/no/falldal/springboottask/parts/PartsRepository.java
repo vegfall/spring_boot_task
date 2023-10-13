@@ -1,4 +1,4 @@
-package no.falldal.springboottask;
+package no.falldal.springboottask.parts;
 
 import lombok.Getter;
 import org.slf4j.Logger;
@@ -23,6 +23,9 @@ public class PartsRepository {
     }
 
     public void addPart(Part part) {
+        if (part.name().equals("fish")) {
+            throw new RuntimeException();
+        }
         partsList.add(part);
     }
 
@@ -35,19 +38,20 @@ public class PartsRepository {
     }
 
     public void updatePart(Part oldPart, Part newPart) {
-        for (int i = 0; i < partsList.size(); i++) {
-            if (partsList.get(i).equals(oldPart)) {
-                partsList.set(i, newPart);
-                break;
-            }
+        if (partsList.contains(oldPart)) {
+            partsList.set(partsList.indexOf(oldPart), newPart);
+            logger.info(String.format("Updated %s (%s) -> %s (%s)", oldPart.name(), oldPart.price(), newPart.name(), newPart.price()));
+        } else {
+            logger.info(String.format("Unable to update %s (%s) -> %s (%s)", oldPart.name(), oldPart.price(), newPart.name(), newPart.price()));
         }
     }
 
     public void deletePart(Part part) {
-        for (int i = 0; i < partsList.size(); i++) {
-            if (partsList.get(i).equals(part)) {
-                partsList.remove(part);
-            }
+        if (partsList.contains(part)) {
+            partsList.remove(part);
+            logger.info(String.format("%s (%s) deleted.", part.name(), part.price()));
+        } else {
+            logger.info(String.format("%s (%s) not found.", part.name(), part.price()));
         }
     }
 }

@@ -1,4 +1,4 @@
-package no.falldal.springboottask;
+package no.falldal.springboottask.parts;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
