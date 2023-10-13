@@ -1,6 +1,8 @@
 package no.falldal.springboottask;
 
 import lombok.Getter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,7 +12,10 @@ import java.util.ArrayList;
 public class PartsRepository {
     private final ArrayList<Part> partsList;
 
+    private final Logger logger = LoggerFactory.getLogger(PartsRepository.class);
+
     public PartsRepository() {
+
         partsList = new ArrayList<>();
 
         partsList.add(new Part("Part1", 100));
