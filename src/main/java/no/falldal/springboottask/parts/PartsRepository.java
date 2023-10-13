@@ -1,5 +1,7 @@
 package no.falldal.springboottask.parts;
 
+import no.falldal.springboottask.parts.exceptions.PartsRepositoryExceptions;
+
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +26,7 @@ public class PartsRepository {
 
     public void addPart(Part part) {
         if (part.name().equals("fish")) {
-            throw new RuntimeException();
+            throw new PartsRepositoryExceptions();
         }
         partsList.add(part);
     }
